@@ -1,4 +1,4 @@
-// Sigup
+// Signup
 signupForm.addEventListener("submit", async (ev) => {
   ev.preventDefault();
   const modal = document.getElementById("modal-signup");
