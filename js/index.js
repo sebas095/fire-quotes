@@ -17,7 +17,7 @@ async function setupUI(user) {
     loggedInMenu.forEach((menu) => (menu.style.display = "block"));
     loggedOutMenu.forEach((menu) => (menu.style.display = "none"));
   } else {
-    quotesUI.innerHTML += `
+    quotesUl.innerHTML += `
       <h3 class='center-align'>
         Please, login to enjoy our quotes!
       </h3>
