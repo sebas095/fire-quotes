@@ -43,5 +43,5 @@ async function setupQuotes(quotes) {
     html += li;
   });
 
-  quotesUI.innerHTML = html;
+  quotesUl.innerHTML = html;
 }

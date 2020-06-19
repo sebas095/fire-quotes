@@ -9,4 +9,4 @@ const logoutButton = document.getElementById("logout");
 
 const accountDetails = document.querySelector(".account-details");
 const adminItems = document.querySelectorAll(".admin");
-const quotesUI = document.querySelector(".quotes");
+const quotesUl = document.querySelector(".quotes");
