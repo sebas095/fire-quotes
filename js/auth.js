@@ -68,3 +68,7 @@ logoutButton.addEventListener("click", async (ev) => {
   await logout();
   console.log("User logged out!");
 });
+
+auth.onAuthStateChanged(async (user) => {
+  await setupUI(user);
+});
