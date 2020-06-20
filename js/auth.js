@@ -53,7 +53,6 @@ loginForm.addEventListener("submit", async (ev) => {
   try {
     const { email, password } = getLoginFormInfo();
     await login(email, password);
-    console.log("User logged in!");
   } catch (ex) {
     alert("An error ocurred trying login: " + ex.message);
   } finally {
@@ -66,16 +65,19 @@ loginForm.addEventListener("submit", async (ev) => {
 logoutButton.addEventListener("click", async (ev) => {
   ev.preventDefault();
   await logout();
-  console.log("User logged out!");
 });
 
 auth.onAuthStateChanged(async (user) => {
   if (user) {
+    const idTokenResult = await user.getIdTokenResult();
+    user.admin = idTokenResult.claims.admin;
+
     db.collection("quotes").onSnapshot((snapshot) => {
       setupQuotes(snapshot.docs);
       setupUI(user);
     });
   } else {
+    setupQuotes([]);
     setupUI();
   }
 });
