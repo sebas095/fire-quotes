@@ -72,10 +72,13 @@ auth.onAuthStateChanged(async (user) => {
     const idTokenResult = await user.getIdTokenResult();
     user.admin = idTokenResult.claims.admin;
 
-    db.collection("quotes").onSnapshot((snapshot) => {
-      setupQuotes(snapshot.docs);
-      setupUI(user);
-    });
+    db.collection("quotes").onSnapshot(
+      (snapshot) => {
+        setupQuotes(snapshot.docs);
+        setupUI(user);
+      },
+      (err) => {}
+    );
   } else {
     setupQuotes([]);
     setupUI();
